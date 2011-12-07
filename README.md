@@ -31,3 +31,12 @@ built-in readline module.
 ## CONTRIBUTING
 
 Patches welcome.
+
+## BUGS
+
+In node 0.6.0 through 0.6.5, you must explicitly call
+`process.stdin.destroy()` or `process.exit()` when you know that your
+program is done reading, or else it will keep the event loop running
+forever.
+
+See: <https://github.com/joyent/node/issues/2257>
