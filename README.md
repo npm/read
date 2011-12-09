@@ -20,6 +20,7 @@ Every option is optional.
 * `num` Max number of chars to read from terminal.
 * `delim` The char that means we're done.  Default: `"\n"`
 * `timeout` Number of ms to wait for user input before giving up.
+* `default` The default value if the user enters nothing.
 
 If silent is true, or num is set, or delim is something other than
 `"\n"`, then read will set raw mode, and read character by character.
