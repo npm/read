@@ -12,5 +12,6 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/isaacs/read.git"
-  }
+  },
+  "license":"BSD"
 }
