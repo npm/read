@@ -1,6 +1,6 @@
 {
   "name": "read",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/read.js",
   "dependencies": {},
   "devDependencies": {},
