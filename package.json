@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "main": "lib/read.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {"tap":"*"},
   "engines": {
     "node": ">=0.6"
   },
@@ -13,5 +13,6 @@
     "type": "git",
     "url": "git://github.com/isaacs/read.git"
   },
-  "license":"BSD"
+  "license":"BSD",
+  "scripts":{"test":"tap test/*.js"}
 }
