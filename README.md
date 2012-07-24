@@ -25,6 +25,7 @@ Every option is optional.
 * `timeout` Number of ms to wait for user input before giving up.
 * `default` The default value if the user enters nothing.
 * `edit` Allow the user to edit the default value.
+* `terminal` Treat the output as a TTY, whether it is or not.
 * `stdin` Readable stream to get input data from. (default `process.stdin`)
 * `stdout` Writeable stream to write prompts to. (default: `process.stdout`)
 
