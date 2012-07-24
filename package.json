@@ -1,6 +1,6 @@
 {
   "name": "read",
-  "version": "1.0.0-pre",
+  "version": "1.0.0",
   "main": "lib/read.js",
   "dependencies": {
     "mute-stream": "0"
