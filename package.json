@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "main": "lib/read.js",
   "dependencies": {
-    "mute-stream": "0"
+    "mute-stream": "~0.0.2"
   },
   "devDependencies": {
     "tap": "*"
