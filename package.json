@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git://github.com/isaacs/read.git"
   },
-  "license": "BSD",
+  "license": "ISC",
   "scripts": {
     "test": "tap test/*.js"
   }
