@@ -1,4 +1,3 @@
-var tap = require('tap')
 var read = require('../lib/read.js')
 
 var CLOSE = 'close'
@@ -10,6 +9,7 @@ if (process.argv[2] === 'child') {
   return child()
 }
 
+var tap = require('tap')
 var spawn = require('child_process').spawn
 function child () {
   read({prompt:'1'}, function (er, r1) {if (er) throw er

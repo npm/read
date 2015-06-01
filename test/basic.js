@@ -1,10 +1,10 @@
-var tap = require('tap')
 var read = require('../lib/read.js')
 
 if (process.argv[2] === 'child') {
   return child()
 }
 
+var tap = require('tap')
 var CLOSE = 'close'
 if (process.version.match(/^v0\.6/)) {
   CLOSE = 'exit'
