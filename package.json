@@ -20,5 +20,8 @@
   "license": "ISC",
   "scripts": {
     "test": "tap test/*.js"
-  }
+  },
+  "files": [
+    "lib/read.js"
+  ]
 }
