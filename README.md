@@ -29,6 +29,7 @@ Every option is optional.
 * `terminal` Treat the output as a TTY, whether it is or not.
 * `input` Readable stream to get input data from. (default `process.stdin`)
 * `output` Writeable stream to write prompts to. (default: `process.stdout`)
+* `completer` Autocomplete callback (see [official api](https://nodejs.org/api/readline.html#readline_readline_createinterface_options) for details
 
 If silent is true, and the input is a TTY, then read will set raw
 mode, and read character by character.
