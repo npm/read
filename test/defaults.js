@@ -38,22 +38,23 @@ tap.test('defaults', function (t) {
 
   child.on(CLOSE, function () {
     result = JSON.parse(result)
-    t.same(result, {"user":"test-user","pass":"test-pass","verify":"test-pass","passMatch":true})
+    t.same(result, { user: 'test-user', pass: 'test-pass', verify: 'test-pass', passMatch: true })
     t.equal(output, 'Username: (test-user) Password: (<default hidden>) Password again: (<default hidden>) ')
     t.end()
   })
 })
 
 function child () {
-  read({prompt: "Username: ", default: "test-user" }, function (er, user) {
-    read({prompt: "Password: ", default: "test-pass", silent: true }, function (er, pass) {
-      read({prompt: "Password again: ", default: "test-pass", silent: true }, function (er, pass2) {
-        console.error(JSON.stringify({user: user,
-                       pass: pass,
-                       verify: pass2,
-                       passMatch: (pass === pass2)}))
-        if (process.stdin.unref)
+  read({ prompt: 'Username: ', default: 'test-user' }, function (er, user) {
+    read({ prompt: 'Password: ', default: 'test-pass', silent: true }, function (er, pass) {
+      read({ prompt: 'Password again: ', default: 'test-pass', silent: true }, function (er, pass2) {
+        console.error(JSON.stringify({ user: user,
+          pass: pass,
+          verify: pass2,
+          passMatch: (pass === pass2) }))
+        if (process.stdin.unref) {
           process.stdin.unref()
+        }
       })
     })
   })
