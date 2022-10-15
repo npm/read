@@ -12,29 +12,101 @@ if (process.argv[2] === 'child') {
 var tap = require('tap')
 var spawn = require('child_process').spawn
 function child () {
-  read({prompt:'1'}, function (er, r1) {if (er) throw er
-  read({prompt:'2'}, function (er, r2) {if (er) throw er
-  read({prompt:'3'}, function (er, r3) {if (er) throw er
-  read({prompt:'4'}, function (er, r4) {if (er) throw er
-  read({prompt:'5'}, function (er, r5) {if (er) throw er
-  read({prompt:'6'}, function (er, r6) {if (er) throw er
-  read({prompt:'7'}, function (er, r7) {if (er) throw er
-  read({prompt:'8'}, function (er, r8) {if (er) throw er
-  read({prompt:'9'}, function (er, r9) {if (er) throw er
-  read({prompt:'10'}, function (er, r10) {if (er) throw er
-  read({prompt:'11'}, function (er, r11) {if (er) throw er
-  read({prompt:'12'}, function (er, r12) {if (er) throw er
-  read({prompt:'13'}, function (er, r13) {if (er) throw er
-  read({prompt:'14'}, function (er, r14) {if (er) throw er
-  read({prompt:'15'}, function (er, r15) {if (er) throw er
-  read({prompt:'16'}, function (er, r16) {if (er) throw er
-  read({prompt:'17'}, function (er, r17) {if (er) throw er
-  read({prompt:'18'}, function (er, r18) {if (er) throw er
-    console.log(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
-                r11, r12, r13, r14, r15, r16, r17, r18)
-    if (process.stdin.unref)
-      process.stdin.unref()
-  })})})})})})})})})})})})})})})})})})
+  read({ prompt: '1' }, function (er, r1) {
+    if (er) {
+      throw er
+    }
+    read({ prompt: '2' }, function (er, r2) {
+      if (er) {
+        throw er
+      }
+      read({ prompt: '3' }, function (er, r3) {
+        if (er) {
+          throw er
+        }
+        read({ prompt: '4' }, function (er, r4) {
+          if (er) {
+            throw er
+          }
+          read({ prompt: '5' }, function (er, r5) {
+            if (er) {
+              throw er
+            }
+            read({ prompt: '6' }, function (er, r6) {
+              if (er) {
+                throw er
+              }
+              read({ prompt: '7' }, function (er, r7) {
+                if (er) {
+                  throw er
+                }
+                read({ prompt: '8' }, function (er, r8) {
+                  if (er) {
+                    throw er
+                  }
+                  read({ prompt: '9' }, function (er, r9) {
+                    if (er) {
+                      throw er
+                    }
+                    read({ prompt: '10' }, function (er, r10) {
+                      if (er) {
+                        throw er
+                      }
+                      read({ prompt: '11' }, function (er, r11) {
+                        if (er) {
+                          throw er
+                        }
+                        read({ prompt: '12' }, function (er, r12) {
+                          if (er) {
+                            throw er
+                          }
+                          read({ prompt: '13' }, function (er, r13) {
+                            if (er) {
+                              throw er
+                            }
+                            read({ prompt: '14' }, function (er, r14) {
+                              if (er) {
+                                throw er
+                              }
+                              read({ prompt: '15' }, function (er, r15) {
+                                if (er) {
+                                  throw er
+                                }
+                                read({ prompt: '16' }, function (er, r16) {
+                                  if (er) {
+                                    throw er
+                                  }
+                                  read({ prompt: '17' }, function (er, r17) {
+                                    if (er) {
+                                      throw er
+                                    }
+                                    read({ prompt: '18' }, function (er, r18) {
+                                      if (er) {
+                                        throw er
+                                      }
+                                      console.log(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
+                                        r11, r12, r13, r14, r15, r16, r17, r18)
+                                      if (process.stdin.unref) {
+                                        process.stdin.unref()
+                                      }
+                                    })
+                                  })
+                                })
+                              })
+                            })
+                          })
+                        })
+                      })
+                    })
+                  })
+                })
+              })
+            })
+          })
+        })
+      })
+    })
+  })
 }
 
 tap.test('many reads', function (t) {
@@ -46,7 +118,7 @@ tap.test('many reads', function (t) {
                '13 14 15 16 17 18\n'
   var write = child.stdin.write.bind(child.stdin)
   var answers =
-      [ '1\n',
+      ['1\n',
         '2\n',
         '3\n',
         '4\n',
@@ -63,9 +135,9 @@ tap.test('many reads', function (t) {
         '15\n',
         '16\n',
         '17\n',
-        '18\n' ]
+        '18\n']
   child.stdout.on('data', function (c) {
-    n++;
+    n++
     output += c
     if (answers.length) {
       write(answers.shift())
