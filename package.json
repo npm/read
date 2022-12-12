@@ -38,6 +38,11 @@
     "version": "4.6.0"
   },
   "tap": {
+    "statements": 77,
+    "branches": 75,
+    "functions": 57,
+    "lines": 78,
+    "test-ignore": "fixtures/",
     "nyc-arg": [
       "--exclude",
       "tap-snapshots/**"
