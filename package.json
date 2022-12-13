@@ -3,7 +3,7 @@
   "version": "1.0.7",
   "main": "lib/read.js",
   "dependencies": {
-    "mute-stream": "~0.0.4"
+    "mute-stream": "~1.0.0"
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^4.0.0",
