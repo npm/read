@@ -1,6 +1,7 @@
 {
   "name": "read",
   "version": "2.0.0",
+  "types": "lib/read.d.ts",
   "main": "lib/read.js",
   "dependencies": {
     "mute-stream": "~1.0.0"
