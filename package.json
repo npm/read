@@ -9,7 +9,12 @@
   "devDependencies": {
     "@npmcli/eslint-config": "^4.0.0",
     "@npmcli/template-oss": "4.11.4",
-    "tap": "^16.3.0"
+    "@types/mute-stream": "^0.0.1",
+    "@types/tap": "^15.0.8",
+    "c8": "^7.13.0",
+    "tap": "^16.3.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
   },
   "engines": {
     "node": "^14.17.0 || ^16.13.0 || >=18.0.0"
@@ -22,12 +27,12 @@
   },
   "license": "ISC",
   "scripts": {
-    "test": "tap",
+    "test": "c8 tap",
     "lint": "eslint \"**/*.js\"",
     "postlint": "template-oss-check",
     "template-oss-apply": "template-oss-apply --force",
     "lintfix": "npm run lint -- --fix",
-    "snap": "tap",
+    "snap": "c8 tap",
     "posttest": "npm run lint"
   },
   "files": [
@@ -39,14 +44,11 @@
     "version": "4.11.4"
   },
   "tap": {
-    "statements": 77,
-    "branches": 75,
-    "functions": 57,
-    "lines": 78,
-    "test-ignore": "fixtures/",
-    "nyc-arg": [
-      "--exclude",
-      "tap-snapshots/**"
+    "ts": false,
+    "coverage": false,
+    "node-arg": [
+      "--no-warnings",
+      "--loader=ts-node/esm"
     ]
   }
 }
