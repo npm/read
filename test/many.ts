@@ -3,9 +3,9 @@ import spawnRead from './fixtures/setup'
 
 const times = new Array(18).fill(null).map((_, i) => (i + 1).toString())
 
-async function child() {
-  const read = require('../')
+import read from '../'
 
+async function child() {
   const res: string[] = []
   for (const t of times) {
     const r = await read({ prompt: `num ${t}` })

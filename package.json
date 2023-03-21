@@ -1,8 +1,24 @@
 {
   "name": "read",
   "version": "2.0.0",
-  "types": "lib/read.d.ts",
-  "main": "lib/read.js",
+  "main": "./dist/cjs/read-cjs.js",
+  "module": "./dist/mjs/read.js",
+  "types": "./dist/mjs/read.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/mjs/read.d.ts",
+        "default": "./dist/mjs/read.js"
+      },
+      "require": {
+        "types": "./dist/cjs/read.d.ts",
+        "default": "./dist/cjs/read-cjs.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "mute-stream": "~1.0.0"
   },
@@ -27,6 +43,11 @@
   },
   "license": "ISC",
   "scripts": {
+    "preprepare": "rm -rf dist",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+    "postprepare": "bash fixup.sh",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
     "test": "c8 tap",
     "lint": "eslint \"**/*.js\"",
     "postlint": "template-oss-check",
@@ -35,10 +56,6 @@
     "snap": "c8 tap",
     "posttest": "npm run lint"
   },
-  "files": [
-    "bin/",
-    "lib/"
-  ],
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
     "version": "4.11.4"
