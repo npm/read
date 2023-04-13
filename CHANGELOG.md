@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.1.0](https://github.com/npm/read/compare/v2.0.0...v2.1.0) (2023-04-13)
+
+### Features
+
+* [`c149cf9`](https://github.com/npm/read/commit/c149cf998223e2ae45c013768038717bc4a1c543) [#51](https://github.com/npm/read/pull/51) add completer option to forward to readline (#51) (@wraithgar, @131)
+
+### Bug Fixes
+
+* [`c5932e8`](https://github.com/npm/read/commit/c5932e8d223990dd65a46226f560768c430d1888) [#35](https://github.com/npm/read/pull/35) Support rare \r line break (#35) (@NikxDa, @wraithgar, @wraithgar)
+* [`f30fe66`](https://github.com/npm/read/commit/f30fe6640287cbd5a341b7a9f65a60e40558e389) [#52](https://github.com/npm/read/pull/52) extra newline on muted, replaced input (#52) (@wraithgar, @deed02392)
+
 ## [2.0.0](https://github.com/npm/read/compare/v1.0.7...v2.0.0) (2022-12-13)
 
 ### ⚠️ BREAKING CHANGES
