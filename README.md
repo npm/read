@@ -10,7 +10,7 @@ few more features.
 ```javascript
 var read = require("read")
 try {
-  const result = await read(options, callback)
+  const result = await read(options)
 } catch (er) {
   console.error(er)
 }
