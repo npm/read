@@ -7,19 +7,17 @@ tap-testdir*/
 
 # keep these
 !**/.gitignore
-!/.commitlintrc.js
-!/.eslintrc.js
+!/.commitlintrc.cjs
+!/.eslintrc.cjs
 !/.eslintrc.local.*
 !/.github/
 !/.gitignore
 !/.npmrc
 !/.release-please-manifest.json
-!/bin/
 !/CHANGELOG*
 !/CODE_OF_CONDUCT.md
 !/CONTRIBUTING.md
 !/docs/
-!/lib/
 !/LICENSE*
 !/map.js
 !/package.json
@@ -27,6 +25,7 @@ tap-testdir*/
 !/release-please-config.json
 !/scripts/
 !/SECURITY.md
+!/src/
 !/tap-snapshots/
 !/test/
 !/tsconfig.json

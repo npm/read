@@ -8,7 +8,8 @@ few more features.
 ## Usage
 
 ```javascript
-var read = require("read")
+const { read } = require('read')
+// or with ESM: import { read } from 'read'
 try {
   const result = await read(options)
 } catch (er) {
