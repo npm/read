@@ -46,6 +46,7 @@ export async function read<T extends string | number = string> ({
   if (defString) {
     if (silent) {
       prompt += '(<default hidden>) '
+      // TODO: add tests for edit
       /* c8 ignore start */
     } else if (edit) {
       editDef = true
@@ -61,6 +62,7 @@ export async function read<T extends string | number = string> ({
 
   return new Promise<string | T>((resolve, reject) => {
     const rl = createInterface({ input, output, terminal, completer })
+    // TODO: add tests for timeout
     /* c8 ignore start */
     const timer = timeout && setTimeout(() => onError(new Error('timed out')), timeout)
     /* c8 ignore stop */
@@ -71,6 +73,7 @@ export async function read<T extends string | number = string> ({
 
     if (silent) {
       m.mute()
+      // TODO: add tests for edit + default
       /* c8 ignore start */
     } else if (editDef && defString) {
       const rlEdit = rl as typeof rl & {
@@ -91,6 +94,7 @@ export async function read<T extends string | number = string> ({
       m.end()
     }
 
+    // TODO: add tests for rejecting
     /* c8 ignore start */
     const onError = (er: Error) => {
       done()
@@ -100,18 +104,21 @@ export async function read<T extends string | number = string> ({
 
     rl.on('error', onError)
     rl.on('line', line => {
+      // TODO: add tests for silent
       /* c8 ignore start */
       if (silent && terminal) {
         m.unmute()
       }
       /* c8 ignore stop */
       done()
+      // TODO: add tests for default
       /* c8 ignore start */
       // truncate the \n at the end.
       return resolve(line.replace(/\r?\n?$/, '') || defString || '')
       /* c8 ignore stop */
     })
 
+    // TODO: add tests for sigint
     /* c8 ignore start */
     rl.on('SIGINT', () => {
       rl.close()
