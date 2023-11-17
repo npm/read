@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.0.0](https://github.com/npm/read/compare/v2.1.0...v3.0.0) (2023-11-16)
+
+### ⚠️ BREAKING CHANGES
+
+* `read` is now written in TypeScript and types are now shipped as part of this package.
+
+### Features
+
+* [`18cb7bd`](https://github.com/npm/read/commit/18cb7bd9f364a5cafabd9cb52942f048da7178af) [#77](https://github.com/npm/read/pull/77) convert to typescript and esm (#77) (@lukekarrys)
+
+### Documentation
+
+* [`ada826d`](https://github.com/npm/read/commit/ada826d2ded4e35a1e60d9f50dc31fda083d2a5d) [#59](https://github.com/npm/read/pull/59) remove unnecessary callback param (#59) (@igrep)
+
 ## [2.1.0](https://github.com/npm/read/compare/v2.0.0...v2.1.0) (2023-04-13)
 
 ### Features
