@@ -1,4 +1,7 @@
 {
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "test": "c8 tap",
     "snap": "c8 tap"

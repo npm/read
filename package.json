@@ -80,5 +80,8 @@
       "--exclude",
       "tap-snapshots/**"
     ]
-  }
+  },
+  "files": [
+    "dist/"
+  ]
 }
