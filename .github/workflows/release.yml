@@ -392,6 +392,8 @@ jobs:
         run: |
           npm i --prefer-online --no-fund --no-audit -g npm@latest
           npm config set '//registry.npmjs.org/:_authToken'=\${PUBLISH_TOKEN}
+      - name: Install Dependencies
+        run: npm i --ignore-scripts --no-audit --no-fund
       - name: Publish
         env:
           PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
