@@ -1,6 +1,6 @@
 {
   "name": "read",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "exports": {
     "./package.json": "./package.json",
     ".": {

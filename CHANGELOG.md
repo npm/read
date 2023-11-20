@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.1](https://github.com/npm/read/compare/v3.0.0...v3.0.1) (2023-11-20)
+
+### Bug Fixes
+
+* [`22cb8dc`](https://github.com/npm/read/commit/22cb8dc5c7b567cd2d890ca2d71fed1faaf52d29) [#84](https://github.com/npm/read/pull/84) only ship dist files (@lukekarrys)
+
 ## [3.0.0](https://github.com/npm/read/compare/v2.1.0...v3.0.0) (2023-11-16)
 
 ### ⚠️ BREAKING CHANGES
