@@ -61,10 +61,9 @@
   },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
-    "version": "4.20.0",
+    "version": "4.21.0",
     "publish": true,
-    "typescript": true,
-    "content": "./scripts/template-oss"
+    "typescript": true
   },
   "main": "./dist/commonjs/read.js",
   "types": "./dist/commonjs/read.d.ts",
