@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^4.0.2",
-    "@npmcli/template-oss": "4.20.0",
+    "@npmcli/template-oss": "file:../template-oss/npmcli-template-oss-4.20.0.tgz",
     "@types/mute-stream": "^0.0.4",
     "@types/tap": "^15.0.11",
     "@typescript-eslint/parser": "^6.11.0",
@@ -63,8 +63,7 @@
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
     "version": "4.20.0",
     "publish": true,
-    "typescript": true,
-    "content": "./scripts/template-oss"
+    "typescript": true
   },
   "main": "./dist/commonjs/read.js",
   "types": "./dist/commonjs/read.d.ts",

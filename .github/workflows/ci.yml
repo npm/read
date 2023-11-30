@@ -33,37 +33,10 @@ jobs:
         with:
           node-version: 20.x
           check-latest: contains('20.x', '.x')
-
       - name: Install Latest npm
-        shell: bash
-        env:
-          NODE_VERSION: ${{ steps.node.outputs.node-version }}
-        run: |
-          MATCH=""
-          SPECS=("latest" "next-10" "next-9" "next-8" "next-7" "next-6")
-
-          echo "node@$NODE_VERSION"
-
-          for SPEC in ${SPECS[@]}; do
-            ENGINES=$(npm view npm@$SPEC --json | jq -r '.engines.node')
-            echo "Checking if node@$NODE_VERSION satisfies npm@$SPEC ($ENGINES)"
-
-            if npx semver -r "$ENGINES" "$NODE_VERSION" > /dev/null; then
-              MATCH=$SPEC
-              echo "Found compatible version: npm@$MATCH"
-              break
-            fi  
-          done
-
-          if [ -z $MATCH ]; then
-            echo "Could not find a compatible version of npm for node@$NODE_VERSION"
-            exit 1
-          fi
-
-          npm i --prefer-online --no-fund --no-audit -g npm@$MATCH
-
-      - name: npm Version
-        run: npm -v
+        uses: ./.github/actions/install-latest-npm
+        with:
+          node: ${{ steps.node.outputs.node-version }}
       - name: Install Dependencies
         run: npm i --ignore-scripts --no-audit --no-fund
       - name: Lint
@@ -112,53 +85,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           check-latest: contains(matrix.node-version, '.x')
-
-      # node 10/12/14 ship with npm@6, which is known to fail when updating itself in windows
-      - name: Update Windows npm
-        if: |
-          matrix.platform.os == 'windows-latest' && (
-            startsWith(steps.node.outputs.node-version, 'v10.') ||
-            startsWith(steps.node.outputs.node-version, 'v12.') ||
-            startsWith(steps.node.outputs.node-version, 'v14.')
-          )
-        run: |
-          curl -sO https://registry.npmjs.org/npm/-/npm-7.5.4.tgz
-          tar xf npm-7.5.4.tgz
-          cd package
-          node lib/npm.js install --no-fund --no-audit -g ..\npm-7.5.4.tgz
-          cd ..
-          rmdir /s /q package
-
       - name: Install Latest npm
-        shell: bash
-        env:
-          NODE_VERSION: ${{ steps.node.outputs.node-version }}
-        run: |
-          MATCH=""
-          SPECS=("latest" "next-10" "next-9" "next-8" "next-7" "next-6")
-
-          echo "node@$NODE_VERSION"
-
-          for SPEC in ${SPECS[@]}; do
-            ENGINES=$(npm view npm@$SPEC --json | jq -r '.engines.node')
-            echo "Checking if node@$NODE_VERSION satisfies npm@$SPEC ($ENGINES)"
-
-            if npx semver -r "$ENGINES" "$NODE_VERSION" > /dev/null; then
-              MATCH=$SPEC
-              echo "Found compatible version: npm@$MATCH"
-              break
-            fi  
-          done
-
-          if [ -z $MATCH ]; then
-            echo "Could not find a compatible version of npm for node@$NODE_VERSION"
-            exit 1
-          fi
-
-          npm i --prefer-online --no-fund --no-audit -g npm@$MATCH
-
-      - name: npm Version
-        run: npm -v
+        uses: ./.github/actions/install-latest-npm
+        with:
+          node: ${{ steps.node.outputs.node-version }}
       - name: Install Dependencies
         run: npm i --ignore-scripts --no-audit --no-fund
       - name: Add Problem Matcher
