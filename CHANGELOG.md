@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.2](https://github.com/npm/read/compare/v3.0.1...v3.0.2) (2024-03-14)
+
+### Chores
+
+* [`ff55321`](https://github.com/npm/read/commit/ff55321ffe74704ac8be59e1519773f79ce039cf) [#100](https://github.com/npm/read/pull/100) bump @typescript-eslint/parser from 6.21.0 to 7.2.0 (#100) (@dependabot[bot])
+* [`af2eed0`](https://github.com/npm/read/commit/af2eed0a8755c1743d72573da8d4352944d8bb69) [#90](https://github.com/npm/read/pull/90) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`2d7689b`](https://github.com/npm/read/commit/2d7689bd4603ebda46c3fe510f1cbe231071f11a) [#90](https://github.com/npm/read/pull/90) bump @npmcli/template-oss from 4.21.1 to 4.21.3 (@dependabot[bot])
+* [`b4cdbec`](https://github.com/npm/read/commit/b4cdbec760a43c76be01715b8ab29704f73eaeaa) [#89](https://github.com/npm/read/pull/89) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`17c627a`](https://github.com/npm/read/commit/17c627a8d58636ecd3a3dbc089264ed121fb3c9d) [#89](https://github.com/npm/read/pull/89) bump @npmcli/template-oss from 4.21.0 to 4.21.1 (@dependabot[bot])
+* [`705f985`](https://github.com/npm/read/commit/705f98574c4f86cf051e69b2e9921f393e07fb33) [#87](https://github.com/npm/read/pull/87) bump @npmcli/template-oss from 4.20.0 to 4.21.0 (#87) (@dependabot[bot], @lukekarrys)
+
 ## [3.0.1](https://github.com/npm/read/compare/v3.0.0...v3.0.1) (2023-11-20)
 
 ### Bug Fixes
