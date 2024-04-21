@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.2](https://github.com/npm/read/compare/v3.0.1...v3.0.2) (2024-04-21)
+
+### Chores
+
+* [`ff55321`](https://github.com/npm/read/commit/ff55321ffe74704ac8be59e1519773f79ce039cf) [#100](https://github.com/npm/read/pull/100) bump @typescript-eslint/parser from 6.21.0 to 7.2.0 (#100) (@dependabot[bot])
+* [`fedd12b`](https://github.com/npm/read/commit/fedd12b7af71b40b7c0e47f937d865c3ca0bbed4) [#102](https://github.com/npm/read/pull/102) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`ee55340`](https://github.com/npm/read/commit/ee5534088f5c62ea009d856b2980423dcac360ec) [#102](https://github.com/npm/read/pull/102) bump @npmcli/template-oss from 4.21.3 to 4.21.4 (@dependabot[bot])
+
 ## [3.0.1](https://github.com/npm/read/compare/v3.0.0...v3.0.1) (2023-11-20)
 
 ### Bug Fixes
