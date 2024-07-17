@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^4.0.2",
-    "@npmcli/template-oss": "4.22.0",
+    "@npmcli/template-oss": "4.23.1",
     "@types/mute-stream": "^0.0.4",
     "@types/tap": "^15.0.11",
     "@typescript-eslint/parser": "^7.2.0",
