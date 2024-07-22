@@ -2,17 +2,17 @@
 
 # ignore everything in the root
 /*
-# transient test directories
-tap-testdir*/
 
-# keep these
 !**/.gitignore
 !/.commitlintrc.cjs
 !/.eslintrc.cjs
 !/.eslintrc.local.*
+!/.git-blame-ignore-revs
 !/.github/
 !/.gitignore
 !/.npmrc
+!/.prettierignore
+!/.prettierrc.cjs
 !/.release-please-manifest.json
 !/CHANGELOG*
 !/CODE_OF_CONDUCT.md
@@ -29,3 +29,4 @@ tap-testdir*/
 !/tap-snapshots/
 !/test/
 !/tsconfig.json
+tap-testdir*/
