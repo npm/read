@@ -1,5 +1,23 @@
 # Changelog
 
+## [4.0.0](https://github.com/npm/read/compare/v3.0.1...v4.0.0) (2024-09-25)
+### ⚠️ BREAKING CHANGES
+* `read` now supports node `^18.17.0 || >=20.5.0`
+### Bug Fixes
+* [`eddeb02`](https://github.com/npm/read/commit/eddeb02b2a807a2e8112126c5c3aacccf134d9fc) [#124](https://github.com/npm/read/pull/124) align to npm 10 node engine range (@hashtagchris)
+### Dependencies
+* [`0641d3a`](https://github.com/npm/read/commit/0641d3a4f022d0d779a8cbd8d18c4e27a4054afd) [#124](https://github.com/npm/read/pull/124) `mute-stream@2.0.0`
+### Chores
+* [`1b07665`](https://github.com/npm/read/commit/1b076658be7170593a8796e2f0db2184c3a72831) [#109](https://github.com/npm/read/pull/109) bump c8 from 8.0.1 to 10.1.2 (#109) (@dependabot[bot])
+* [`cdf4cd8`](https://github.com/npm/read/commit/cdf4cd81806f06062d0c106dc336c4d32ca725c4) [#122](https://github.com/npm/read/pull/122) bump @npmcli/eslint-config from 4.0.5 to 5.0.0 (#122) (@dependabot[bot])
+* [`104dc92`](https://github.com/npm/read/commit/104dc924fa08142f5de1fdfd84fa8f33a0cd7556) [#116](https://github.com/npm/read/pull/116) bump tshy from 1.18.0 to 3.0.2 (#116) (@dependabot[bot])
+* [`8f24ce4`](https://github.com/npm/read/commit/8f24ce489125cf44bba5022bc0474a7c097bdb07) [#124](https://github.com/npm/read/pull/124) run template-oss-apply (@hashtagchris)
+* [`8a7ba09`](https://github.com/npm/read/commit/8a7ba0924f1850cb686de768ab83d7e65e1004e7) [#120](https://github.com/npm/read/pull/120) bump @typescript-eslint/parser from 7.18.0 to 8.0.1 (#120) (@dependabot[bot])
+* [`d6beca8`](https://github.com/npm/read/commit/d6beca844bcc8c662ab2856c99a6312fd727e9e7) [#103](https://github.com/npm/read/pull/103) bump @npmcli/template-oss to 4.22.0 (@lukekarrys)
+* [`ff55321`](https://github.com/npm/read/commit/ff55321ffe74704ac8be59e1519773f79ce039cf) [#100](https://github.com/npm/read/pull/100) bump @typescript-eslint/parser from 6.21.0 to 7.2.0 (#100) (@dependabot[bot])
+* [`d30350d`](https://github.com/npm/read/commit/d30350d8d7eafe7ac1b476d1232e68bb22209308) [#123](https://github.com/npm/read/pull/123) postinstall for dependabot template-oss PR (@hashtagchris)
+* [`8558668`](https://github.com/npm/read/commit/8558668dc1c9f02bd63360910389e04319980c1d) [#123](https://github.com/npm/read/pull/123) bump @npmcli/template-oss from 4.23.1 to 4.23.3 (@dependabot[bot])
+
 ## [3.0.1](https://github.com/npm/read/compare/v3.0.0...v3.0.1) (2023-11-20)
 
 ### Bug Fixes
