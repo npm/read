@@ -16,6 +16,7 @@ export interface Options<T extends string | number = string> {
     terminal?: boolean
     replace?: string,
     completer?: Completer | AsyncCompleter,
+    history?: string[],
   }
 
 export async function read<T extends string | number = string> ({
@@ -29,6 +30,7 @@ export async function read<T extends string | number = string> ({
   edit,
   terminal,
   replace,
+  history,
 }: Options<T>): Promise<T | string> {
   if (
     typeof def !== 'undefined' &&
@@ -61,7 +63,7 @@ export async function read<T extends string | number = string> ({
   output = m
 
   return new Promise<string | T>((resolve, reject) => {
-    const rl = createInterface({ input, output, terminal, completer })
+    const rl = createInterface({ input, output, terminal, completer, history })
     // TODO: add tests for timeout
     /* c8 ignore start */
     const timer = timeout && setTimeout(() => onError(new Error('timed out')), timeout)
