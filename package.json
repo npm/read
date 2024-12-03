@@ -28,7 +28,7 @@
     "@npmcli/eslint-config": "^5.0.0",
     "@npmcli/template-oss": "4.23.3",
     "@types/mute-stream": "^0.0.4",
-    "@types/tap": "^15.0.11",
+    "@types/tap": "^18.0.0",
     "@typescript-eslint/parser": "^8.0.1",
     "c8": "^10.1.2",
     "eslint-import-resolver-typescript": "^3.6.1",
