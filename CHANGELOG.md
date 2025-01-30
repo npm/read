@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.1.0](https://github.com/npm/read/compare/v4.0.0...v4.1.0) (2025-01-30)
+### Features
+* [`980e75c`](https://github.com/npm/read/commit/980e75cad4aea099ff37ff445ddb1ae935bc43c8) [#127](https://github.com/npm/read/pull/127) add `history` parameter (#127) (@JupiterPi)
+
 ## [4.0.0](https://github.com/npm/read/compare/v3.0.1...v4.0.0) (2024-09-25)
 ### ⚠️ BREAKING CHANGES
 * `read` now supports node `^18.17.0 || >=20.5.0`
