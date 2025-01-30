@@ -31,6 +31,7 @@ Every option is optional.
 * `input` Readable stream to get input data from. (default `process.stdin`)
 * `output` Writable stream to write prompts to. (default: `process.stdout`)
 * `completer` Autocomplete callback (see [official api](https://nodejs.org/api/readline.html#readline_readline_createinterface_options) for details
+* `history` History array, which will be appended to.
 
 If silent is true, and the input is a TTY, then read will set raw
 mode, and read character by character.
