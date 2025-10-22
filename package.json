@@ -38,7 +38,7 @@
     "typescript": "^5.2.2"
   },
   "engines": {
-    "node": "^18.17.0 || >=20.5.0"
+    "node": "^20.17.0 || >=22.9.0"
   },
   "author": "GitHub Inc.",
   "description": "read(1) for node programs",
@@ -83,5 +83,6 @@
   },
   "files": [
     "dist/"
-  ]
+  ],
+  "module": "./dist/esm/read.js"
 }
