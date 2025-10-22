@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.0.1](https://github.com/npm/read/compare/v5.0.0...v5.0.1) (2025-10-22)
+### Dependencies
+* [`fa485f3`](https://github.com/npm/read/commit/fa485f306690b6b64b62f84103f5e94ef7ec5dd6) [#139](https://github.com/npm/read/pull/139) bump mute-stream from 2.0.0 to 3.0.0 (#139) (@dependabot[bot])
+
 ## [5.0.0](https://github.com/npm/read/compare/v4.1.0...v5.0.0) (2025-10-22)
 ### ⚠️ BREAKING CHANGES
 * `read` now supports node `^20.17.0 || >=22.9.0`
