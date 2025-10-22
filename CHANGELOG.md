@@ -1,5 +1,14 @@
 # Changelog
 
+## [5.0.0](https://github.com/npm/read/compare/v4.1.0...v5.0.0) (2025-10-22)
+### ⚠️ BREAKING CHANGES
+* `read` now supports node `^20.17.0 || >=22.9.0`
+### Bug Fixes
+* [`daa8671`](https://github.com/npm/read/commit/daa86711d0c93a5b9067cdb2aa90a4e120dc8b51) [#136](https://github.com/npm/read/pull/136) align to npm 11 node engine range (#136) (@owlstronaut)
+### Chores
+* [`2e118b7`](https://github.com/npm/read/commit/2e118b70a8d235afbc1d08102514ae850cdc8c46) [#130](https://github.com/npm/read/pull/130) bump eslint-import-resolver-typescript from 3.10.0 to 4.3.2 (#130) (@dependabot[bot])
+* [`47193b3`](https://github.com/npm/read/commit/47193b3922b596a9172ef3ec2a70569f6ee7b4fc) [#137](https://github.com/npm/read/pull/137) bump @npmcli/template-oss from 4.27.0 to 4.27.1 (#137) (@dependabot[bot], @npm-cli-bot)
+
 ## [4.1.0](https://github.com/npm/read/compare/v4.0.0...v4.1.0) (2025-01-30)
 ### Features
 * [`980e75c`](https://github.com/npm/read/commit/980e75cad4aea099ff37ff445ddb1ae935bc43c8) [#127](https://github.com/npm/read/pull/127) add `history` parameter (#127) (@JupiterPi)
