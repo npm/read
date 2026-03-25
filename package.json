@@ -34,7 +34,7 @@
     "eslint-import-resolver-typescript": "^4.3.2",
     "tap": "^16.3.9",
     "ts-node": "^10.9.1",
-    "tshy": "^3.0.2",
+    "tshy": "^4.0.0",
     "typescript": "^5.2.2"
   },
   "engines": {
