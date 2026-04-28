@@ -64,7 +64,8 @@
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
     "version": "4.29.0",
     "publish": true,
-    "typescript": true
+    "typescript": true,
+    "updateNpm": false
   },
   "main": "./dist/commonjs/read.js",
   "types": "./dist/commonjs/read.d.ts",
