@@ -22,7 +22,7 @@
     }
   },
   "dependencies": {
-    "mute-stream": "^3.0.0"
+    "mute-stream": "^4.0.0"
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^6.0.0",
