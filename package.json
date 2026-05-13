@@ -38,7 +38,7 @@
     "typescript": "^6.0.3"
   },
   "engines": {
-    "node": "^20.17.0 || >=22.9.0"
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
   },
   "author": "GitHub Inc.",
   "description": "read(1) for node programs",
