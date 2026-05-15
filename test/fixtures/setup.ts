@@ -10,7 +10,8 @@ const spawnRead = async (
   const filename = fileURLToPath(url)
 
   const proc = spawn(process.execPath, [
-    ...process.execArgv,
+    '--experimental-strip-types',
+    '--no-warnings',
     filename,
     'child',
   ])

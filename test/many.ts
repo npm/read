@@ -1,6 +1,7 @@
-import t from 'tap'
-import spawnRead from './fixtures/setup.js'
-import { read } from '../src/read.js'
+import { test } from 'node:test'
+import { strict as assert } from 'node:assert'
+import spawnRead from './fixtures/setup.ts'
+import { read } from '../src/read.ts'
 
 const times = new Array(18).fill(null).map((_, i) => (i + 1).toString())
 
@@ -19,15 +20,15 @@ async function child () {
 }
 
 const main = () => {
-  t.test('many reads', async t => {
+  test('many reads', async () => {
     const writes = times.reduce((acc: { [k: string]: string }, k) => {
       acc[`num ${k}`] = k
       return acc
     }, {})
     const { stdout, stderr } = await spawnRead(import.meta.url, writes)
 
-    t.equal(stdout, Object.keys(writes).join(' ') + ' ')
-    t.equal(stderr, times.join(' ') + '\n')
+    assert.equal(stdout, Object.keys(writes).join(' ') + ' ')
+    assert.equal(stderr, times.join(' ') + '\n')
   })
 }
 

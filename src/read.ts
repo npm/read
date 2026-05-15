@@ -1,5 +1,6 @@
 import Mute from 'mute-stream'
-import { Completer, AsyncCompleter, createInterface, ReadLineOptions } from 'readline'
+import { createInterface } from 'readline'
+import type { Completer, AsyncCompleter, ReadLineOptions } from 'readline'
 
 export interface Options<T extends string | number = string> {
     default?: T
