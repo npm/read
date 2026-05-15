@@ -1,5 +1,27 @@
 # Changelog
 
+## [6.0.0](https://github.com/npm/read/compare/v5.0.1...v6.0.0) (2026-05-15)
+### ⚠️ BREAKING CHANGES
+* `read` now supports node `^22.22.2 || ^24.15.0 || >=26.0.0`
+* template-oss-apply
+### Features
+* [`3eba8e8`](https://github.com/npm/read/commit/3eba8e859992e43973e5067639e33a3c905e1eac) [#152](https://github.com/npm/read/pull/152) bump to new node engine range (@owlstronaut)
+* [`ed55428`](https://github.com/npm/read/commit/ed55428a0b22bec25f178480c0417901c12cc669) [#152](https://github.com/npm/read/pull/152) template-oss-apply (@owlstronaut)
+### Bug Fixes
+* [`452a842`](https://github.com/npm/read/commit/452a84286f6c03e4bdf3ec201f358f6fb156aef7) [#152](https://github.com/npm/read/pull/152) swap testing and resolve loading issues (@owlstronaut)
+### Dependencies
+* [`67a632a`](https://github.com/npm/read/commit/67a632afe861a55ae7f97af4b61c3d42bcb5e4a2) [#152](https://github.com/npm/read/pull/152) `mute-stream@4.0.0`
+### Chores
+* [`eb2dff4`](https://github.com/npm/read/commit/eb2dff4c52b2c139f00f9857da1ae07271840ef9) [#152](https://github.com/npm/read/pull/152) remove multiple dev deps (@owlstronaut)
+* [`4fee6fc`](https://github.com/npm/read/commit/4fee6fc8b031a08299b02dd8cf785c379e6e676f) [#152](https://github.com/npm/read/pull/152) template-oss-apply (@owlstronaut)
+* [`9b1f56b`](https://github.com/npm/read/commit/9b1f56bffb9823e8a641be42487358b9ed9a3a78) [#152](https://github.com/npm/read/pull/152) bumping @npmcli/template-oss from 4.29.0 to 5.1.0 (@owlstronaut)
+* [`9ed1a6f`](https://github.com/npm/read/commit/9ed1a6f4bb9029107386c02402da9c6cfac855bb) [#149](https://github.com/npm/read/pull/149) bump tshy from 3.3.2 to 4.1.1 (@dependabot[bot])
+* [`49be33b`](https://github.com/npm/read/commit/49be33b2495aca11bcc57335171679654708141e) [#150](https://github.com/npm/read/pull/150) template-oss-apply (@owlstronaut)
+* [`cb8227b`](https://github.com/npm/read/commit/cb8227b1c8aec4493e29da3ff8cff859be62dc89) [#150](https://github.com/npm/read/pull/150) bump typescript from 5.9.3 to 6.0.3 (@dependabot[bot])
+* [`b27f919`](https://github.com/npm/read/commit/b27f919c15c1d3843de1cae07fa8b399de5f19c2) [#145](https://github.com/npm/read/pull/145) bump c8 from 10.1.3 to 11.0.0 (#145) (@dependabot[bot])
+* [`c466121`](https://github.com/npm/read/commit/c4661219a9be1d61b456d904db9883eff319cd67) [#141](https://github.com/npm/read/pull/141) bump @npmcli/eslint-config from 5.1.0 to 6.0.0 (#141) (@dependabot[bot])
+* [`0e32a45`](https://github.com/npm/read/commit/0e32a459275155996b7bc650bc9f07ee463c564d) [#144](https://github.com/npm/read/pull/144) bump @npmcli/template-oss from 4.28.1 to 4.29.0 (#144) (@dependabot[bot], @npm-cli-bot)
+
 ## [5.0.1](https://github.com/npm/read/compare/v5.0.0...v5.0.1) (2025-10-22)
 ### Dependencies
 * [`fa485f3`](https://github.com/npm/read/commit/fa485f306690b6b64b62f84103f5e94ef7ec5dd6) [#139](https://github.com/npm/read/pull/139) bump mute-stream from 2.0.0 to 3.0.0 (#139) (@dependabot[bot])
