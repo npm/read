@@ -1,6 +1,7 @@
-import t from 'tap'
-import { read } from '../src/read.js'
-import spawnRead from './fixtures/setup.js'
+import { test } from 'node:test'
+import { strict as assert } from 'node:assert'
+import { read } from '../src/read.ts'
+import spawnRead from './fixtures/setup.ts'
 
 async function child () {
   const user = await read({ prompt: 'Username: ', default: 'test-user' })
@@ -30,47 +31,47 @@ async function child () {
 }
 
 const main = () => {
-  t.test('basic', async t => {
+  test('basic', async () => {
     const { stdout, stderr } = await spawnRead(import.meta.url, {
       'Username: (test-user)': 'a user',
       'Password: (<default hidden>)': 'a password',
       'Password again: (<default hidden>)': 'a password',
     })
 
-    t.same(JSON.parse(stderr), {
+    assert.deepEqual(JSON.parse(stderr), {
       user: 'a user',
       pass: 'a password',
       verify: 'a password',
       passMatch: true,
     })
-    t.equal(
+    assert.equal(
       stdout,
       'Username: (test-user) Password: (<default hidden>) Password again: (<default hidden>) '
     )
   })
 
-  t.test('defaults', async t => {
+  test('defaults', async () => {
     const { stdout, stderr } = await spawnRead(import.meta.url, {
       'Username: (test-user)': '',
       'Password: (<default hidden>)': '',
       'Password again: (<default hidden>)': '',
     })
 
-    t.same(JSON.parse(stderr), {
+    assert.deepEqual(JSON.parse(stderr), {
       user: 'test-user',
       pass: 'test-pass',
       verify: 'test-pass',
       passMatch: true,
     })
-    t.equal(
+    assert.equal(
       stdout,
       'Username: (test-user) Password: (<default hidden>) Password again: (<default hidden>) '
     )
   })
 
-  t.test('errors', async t => {
+  test('errors', async () => {
     // @ts-expect-error
-    t.rejects(() => read({ default: {} }))
+    await assert.rejects(() => read({ default: {} }))
   })
 }
 

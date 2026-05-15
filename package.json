@@ -45,14 +45,13 @@
   "license": "ISC",
   "scripts": {
     "prepare": "tshy",
-    "pretest": "npm run prepare",
-    "presnap": "npm run prepare",
-    "test": "c8 tap",
+    "test": "node --experimental-strip-types --no-warnings --test './test/*.ts'",
+    "snap": "node --experimental-strip-types --no-warnings --test --test-update-snapshots './test/*.ts'",
+    "test:cover": "node --experimental-strip-types --no-warnings --test --experimental-test-coverage './test/*.ts'",
     "lint": "npm run eslint",
     "postlint": "template-oss-check",
     "template-oss-apply": "template-oss-apply --force",
     "lintfix": "npm run eslint -- --fix",
-    "snap": "c8 tap",
     "posttest": "npm run lint",
     "eslint": "eslint \"**/*.{js,cjs,ts,mjs,jsx,tsx}\""
   },
@@ -61,23 +60,12 @@
     "version": "5.1.0",
     "publish": true,
     "typescript": true,
-    "updateNpm": false
+    "updateNpm": false,
+    "testRunner": "node:test",
+    "content": "./scripts/template-oss"
   },
   "main": "./dist/commonjs/read.js",
   "types": "./dist/commonjs/read.d.ts",
-  "tap": {
-    "coverage": false,
-    "node-arg": [
-      "--no-warnings",
-      "--loader",
-      "ts-node/esm"
-    ],
-    "ts": false,
-    "nyc-arg": [
-      "--exclude",
-      "tap-snapshots/**"
-    ]
-  },
   "files": [
     "dist/"
   ],
