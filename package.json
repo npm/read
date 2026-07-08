@@ -31,7 +31,7 @@
     "@typescript-eslint/parser": "^8.0.1",
     "eslint-import-resolver-typescript": "^4.3.2",
     "tshy": "^4.1.1",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "engines": {
     "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
