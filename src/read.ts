@@ -90,7 +90,10 @@ export async function read<T extends string | number = string> ({
     }
     /* c8 ignore stop */
 
+    let finished = false
+
     const done = () => {
+      finished = true
       rl.close()
       clearTimeout(timer)
       m.mute()
@@ -119,6 +122,19 @@ export async function read<T extends string | number = string> ({
       // truncate the \n at the end.
       return resolve(line.replace(/\r?\n?$/, '') || defString || '')
       /* c8 ignore stop */
+    })
+
+    // readline emits 'close' without ever emitting 'line' when the input stream
+    // ends first, which is what happens any time stdin is not something a user
+    // can type into: /dev/null, an already closed pipe, a child process spawned
+    // without stdin. Settle the promise here or it never settles at all, and the
+    // caller waits on it until the event loop empties and the process exits with
+    // no error to report. Treated as a cancel, same as SIGINT, since both mean no
+    // answer is coming.
+    rl.on('close', () => {
+      if (!finished) {
+        onError(new Error('canceled'))
+      }
     })
 
     // TODO: add tests for sigint

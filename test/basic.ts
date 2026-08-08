@@ -1,5 +1,6 @@
 import { test } from 'node:test'
 import { strict as assert } from 'node:assert'
+import { PassThrough } from 'node:stream'
 import { read } from '../src/read.ts'
 import spawnRead from './fixtures/setup.ts'
 
@@ -72,6 +73,25 @@ const main = () => {
   test('errors', async () => {
     // @ts-expect-error
     await assert.rejects(() => read({ default: {} }))
+  })
+
+  test('input stream ends without a line', async () => {
+    const input = new PassThrough()
+    const output = new PassThrough()
+    input.end()
+
+    await assert.rejects(
+      () => read({ prompt: 'Username:', input, output }),
+      /canceled/
+    )
+  })
+
+  test('input stream ends after a line still resolves', async () => {
+    const input = new PassThrough()
+    const output = new PassThrough()
+    input.end('a user\n')
+
+    assert.equal(await read({ prompt: 'Username:', input, output }), 'a user')
   })
 }
 
