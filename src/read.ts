@@ -137,12 +137,11 @@ export async function read<T extends string | number = string> ({
       }
     })
 
-    // TODO: add tests for sigint
-    /* c8 ignore start */
+    // onError() calls done(), which closes the interface. An explicit close
+    // here would re enter through the 'close' listener above and run the
+    // cleanup twice.
     rl.on('SIGINT', () => {
-      rl.close()
       onError(new Error('canceled'))
     })
-    /* c8 ignore stop */
   })
 }

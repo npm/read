@@ -93,6 +93,23 @@ const main = () => {
 
     assert.equal(await read({ prompt: 'Username:', input, output }), 'a user')
   })
+
+  test('SIGINT rejects with canceled and leaves read usable', async () => {
+    const input = new PassThrough()
+    const output = new PassThrough()
+
+    const p = read({ prompt: 'Username:', input, output, terminal: true })
+    // ctrl+c keypress; readline turns it into a 'SIGINT' event in terminal mode
+    input.write('\x03')
+    await assert.rejects(() => p, /canceled/)
+    input.end()
+
+    // a fresh read after the cancel still works
+    const input2 = new PassThrough()
+    const output2 = new PassThrough()
+    input2.end('after\n')
+    assert.equal(await read({ prompt: 'Username:', input: input2, output: output2 }), 'after')
+  })
 }
 
 if (process.argv[2] === 'child') {
