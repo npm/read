@@ -1,5 +1,6 @@
 import { test } from 'node:test'
 import { strict as assert } from 'node:assert'
+import { PassThrough } from 'node:stream'
 import { read } from '../src/read.ts'
 import spawnRead from './fixtures/setup.ts'
 
@@ -72,6 +73,42 @@ const main = () => {
   test('errors', async () => {
     // @ts-expect-error
     await assert.rejects(() => read({ default: {} }))
+  })
+
+  test('input stream ends without a line', async () => {
+    const input = new PassThrough()
+    const output = new PassThrough()
+    input.end()
+
+    await assert.rejects(
+      () => read({ prompt: 'Username:', input, output }),
+      /canceled/
+    )
+  })
+
+  test('input stream ends after a line still resolves', async () => {
+    const input = new PassThrough()
+    const output = new PassThrough()
+    input.end('a user\n')
+
+    assert.equal(await read({ prompt: 'Username:', input, output }), 'a user')
+  })
+
+  test('SIGINT rejects with canceled and leaves read usable', async () => {
+    const input = new PassThrough()
+    const output = new PassThrough()
+
+    const p = read({ prompt: 'Username:', input, output, terminal: true })
+    // ctrl+c keypress; readline turns it into a 'SIGINT' event in terminal mode
+    input.write('\x03')
+    await assert.rejects(() => p, /canceled/)
+    input.end()
+
+    // a fresh read after the cancel still works
+    const input2 = new PassThrough()
+    const output2 = new PassThrough()
+    input2.end('after\n')
+    assert.equal(await read({ prompt: 'Username:', input: input2, output: output2 }), 'after')
   })
 }
 
