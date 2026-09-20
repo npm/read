@@ -20,6 +20,29 @@ export interface Options<T extends string | number = string> {
     history?: string[],
   }
 
+// When readline closes after the first line on a non-interactive stream, any
+// remaining lines already parsed from the same chunk are discarded by Node and
+// never restored onto the input. Buffer them so a later read() on the same
+// input can still return them (npm/read#36).
+const pendingLines = new WeakMap<object, string[]>()
+
+const takePendingLine = (input: object): string | undefined => {
+  const buf = pendingLines.get(input)
+  if (!buf || buf.length === 0) {
+    return undefined
+  }
+  return buf.shift()
+}
+
+const pushPendingLine = (input: object, line: string): void => {
+  let buf = pendingLines.get(input)
+  if (!buf) {
+    buf = []
+    pendingLines.set(input, buf)
+  }
+  buf.push(line)
+}
+
 export async function read<T extends string | number = string> ({
   default: def,
   input = process.stdin,
@@ -59,6 +82,17 @@ export async function read<T extends string | number = string> ({
     }
   }
 
+  const pending = takePendingLine(input)
+  if (pending !== undefined) {
+    const m = new Mute({ replace, prompt })
+    m.pipe(output, { end: false })
+    m.unmute()
+    m.write(prompt)
+    m.mute()
+    m.end()
+    return pending || defString || ''
+  }
+
   const m = new Mute({ replace, prompt })
   m.pipe(output, { end: false })
   output = m
@@ -90,6 +124,8 @@ export async function read<T extends string | number = string> ({
     }
     /* c8 ignore stop */
 
+    let settled = false
+
     const done = () => {
       rl.close()
       clearTimeout(timer)
@@ -107,6 +143,15 @@ export async function read<T extends string | number = string> ({
 
     rl.on('error', onError)
     rl.on('line', line => {
+      // truncate the \n at the end.
+      const cleaned = line.replace(/\r?\n?$/, '')
+      // Surplus lines may still fire after close() when the whole pipe chunk
+      // was already parsed; stash them for the next read() on this input.
+      if (settled) {
+        pushPendingLine(input, cleaned)
+        return
+      }
+      settled = true
       // TODO: add tests for silent
       /* c8 ignore start */
       if (silent && terminal) {
@@ -116,8 +161,7 @@ export async function read<T extends string | number = string> ({
       done()
       // TODO: add tests for default
       /* c8 ignore start */
-      // truncate the \n at the end.
-      return resolve(line.replace(/\r?\n?$/, '') || defString || '')
+      return resolve(cleaned || defString || '')
       /* c8 ignore stop */
     })
 
