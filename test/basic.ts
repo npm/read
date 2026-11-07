@@ -1,5 +1,6 @@
 import { test } from 'node:test'
 import { strict as assert } from 'node:assert'
+import { PassThrough } from 'node:stream'
 import { read } from '../src/read.ts'
 import spawnRead from './fixtures/setup.ts'
 
@@ -68,6 +69,33 @@ const main = () => {
       'Username: (test-user) Password: (<default hidden>) Password again: (<default hidden>) '
     )
   })
+
+  const terminalCases = [
+    { name: 'false on a TTY', options: { terminal: false }, isTTY: true, usesTerminal: false },
+    { name: 'true on a non-TTY', options: { terminal: true }, isTTY: false, usesTerminal: true },
+    { name: 'omitted on a TTY', options: {}, isTTY: true, usesTerminal: true },
+  ]
+
+  for (const { name, options, isTTY, usesTerminal } of terminalCases) {
+    test('terminal ' + name, async () => {
+      const input = new PassThrough()
+      const output = Object.assign(new PassThrough(), { isTTY })
+      let stdout = ''
+      output.setEncoding('utf8').on('data', chunk => {
+        stdout += chunk
+      })
+
+      const result = read({ input, output, prompt: 'Value:', ...options })
+      input.end('example\n')
+
+      assert.equal(await result, 'example')
+      if (usesTerminal) {
+        assert.ok(stdout.includes('example'), JSON.stringify(stdout))
+      } else {
+        assert.equal(stdout, 'Value: ')
+      }
+    })
+  }
 
   test('errors', async () => {
     // @ts-expect-error
