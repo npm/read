@@ -44,7 +44,7 @@ export async function read<T extends string | number = string> ({
   let editDef = false
   const defString = def?.toString()
   prompt = prompt.trim() + ' '
-  terminal = !!(terminal || output.isTTY)
+  terminal = !!(terminal ?? output.isTTY)
 
   if (defString) {
     if (silent) {
