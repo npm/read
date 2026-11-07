@@ -7,13 +7,38 @@ few more features.
 
 ## Usage
 
+Install with `npm install read`. Save either example below as `example.mjs`
+and run `node example.mjs` in your terminal.
+
+For CommonJS, use `const { read } = require('read')` and call `read` from
+an async function.
+
+### Prompt with a default
+
+Press Enter without typing to use `guest`, or type a different name.
+
 ```javascript
-const { read } = require('read')
-// or with ESM: import { read } from 'read'
-try {
-  const result = await read(options)
-} catch (er) {
-  console.error(er)
+import { read } from 'read'
+
+const name = await read({ prompt: 'Name:', default: 'guest' })
+console.log(`Hello, ${name}!`)
+```
+
+### Mask typed input
+
+In an interactive terminal, `silent` with `replace` displays `*` as you type.
+The promise still resolves to the original input.
+
+```javascript
+import { read } from 'read'
+
+const password = await read({
+  prompt: 'Password:',
+  silent: true,
+  replace: '*',
+})
+if (password) {
+  console.log('Password received.')
 }
 ```
 
